@@ -19,5 +19,18 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 function launchModal() {
   modalbg.style.display = "block";
 }
+function close(){
+  modalbg.style.display="none";
+}
 
+window.onclick = function(e){
+  if (e.target === bground){
+    bground.style.display="none";
+  }
+}
 
+window.addEventListener("keydown", function(event){
+  if (event.key === "Escape"){
+    bground.style.display="none";
+  }
+})

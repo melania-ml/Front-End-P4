@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>Reservation</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="stylesheet" href="modal.css" />
+    <link rel="stylesheet" href="css/modal.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
       href="https://fonts.googleapis.com/css?family=DM+Sans"
@@ -14,7 +14,7 @@
   <body>
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
+      <img alt="logo" src="images/Logo.png" width="auto" height="auto" />
     </div>
     <div class="main-navbar">
       
@@ -28,7 +28,6 @@
       </a>
     </div>
     </div>
-  </div>
     <main>
       <div class="hero-section">
         <div class="hero-content">
@@ -45,26 +44,27 @@
           </button>
         </div>
         <div class="hero-img">
-          <img src="./bg_img.jpg" alt="img" />
+          <img src="images/bg_img.jpg" alt="img" />
         </div>
         <button class="btn-signup modal-btn">
           sign up now
         </button>
       </div>
 
-      <div class="bground">
+      <div class="bground" id="bground">
         <div class="content">
-          <span class="close"></span>
+          <a href="javascript:close()"><span class="close" id="close"></span></a>
           <div class="modal-body">
             <form
               name="reserve"
+              id="reserve"
               action="index.html"
               method="get"
               onsubmit="return validate();"
             >
               <div
                 class="formData">
-                <label>First Name</label><br>
+                <label for= "firstName">First Name</label><br>
                 <input
                   class="text-control"
                   type="text"
@@ -75,17 +75,18 @@
               </div>
               <div
                 class="formData">
-                <label>Last Name</label><br>
+                <label for="lastName">Last Name</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="last"
                   name="last"
+                  minlength="2"
                 /><br>
               </div>
               <div
                 class="formData">
-                <label>Email</label><br>
+                <label for="email">Email</label><br>
                 <input
                   class="text-control"
                   type="email"
@@ -95,7 +96,7 @@
               </div>
               <div
                 class="formData">
-                <label>Birthdate</label><br>
+                <label for="birthdate">Birthdate</label><br>
                 <input
                   class="text-control"
                   type="date"
@@ -105,7 +106,7 @@
               </div>
               <div
                 class="formData">
-                <label>How many tournaments have you attended? </label><br>
+                <label for="numberTournaments">How many tournaments have you attended? </label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
               <p class="text-label">Which location?</p>
@@ -178,21 +179,25 @@
                   Portland</label
                 >
               </div>
-
               <div
                 class="formData">
                 <input
                   class="checkbox-input"
                   type="checkbox"
                   id="checkbox1"
-                  checked
+                  name="checkbox"
                 />
                 <label class="checkbox2-label" for="checkbox1" required>
                   <span class="checkbox-icon"></span>
                   I have read and I agree to GameOn's terms and conditions.
                 </label>
                 <br>
-                <input class="checkbox-input" type="checkbox" id="checkbox2" />
+                <input 
+                class="checkbox-input" 
+                type="checkbox" 
+                id="checkbox2" 
+                name="checkbox"
+                />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
                   Please sign me up to be notified about future events.
