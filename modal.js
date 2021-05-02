@@ -2,7 +2,7 @@
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-const closeModalBtn = document.querySelectorAll(".close") 
+const closeModalBtn = document.querySelectorAll(".close");
 
 // edit nav
 function editNav() {
@@ -54,7 +54,7 @@ let checkbox1 = document.getElementById('checkbox1');
 let input = document.getElementsByClassName('text-control');
 let form = document.getElementById('form');
 const reletter = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
-const remail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const remail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
 // FORM FIELD VALIDATION //
 
@@ -64,7 +64,6 @@ function validateFirstName() {
   firstName.value.trim() === '' || 
   !firstName.value.match(reletter)) {
       firstName.parentElement.setAttribute('data-error-visible', 'true');
-      firstName.style.border = '2px solid #e54858';
       return false;
   }
   firstName.parentElement.setAttribute('data-error-visible', 'false');
@@ -78,7 +77,6 @@ function validateLastName() {
   lastName.value.trim() === '' || 
   !lastName.value.match(reletter)) {
       lastName.parentElement.setAttribute('data-error-visible', 'true');
-      lastName.style.border = '2px solid #e54858';
       return false;
   }
   lastName.parentElement.setAttribute('data-error-visible', 'false');
@@ -94,7 +92,6 @@ function validateEmail() {
         return true;
     }
     email.parentElement.setAttribute('data-error-visible', 'true');
-    email.style.border = '2px solid #e54858';
     return false;
 }
 
@@ -102,7 +99,6 @@ function validateEmail() {
 function validateBirthdate() {
     if (birthdate.value.trim().length !== 10) {
         birthdate.parentElement.setAttribute('data-error-visible', 'true');
-        birthdate.style.border = '2px solid #e54858';
         return false;
     }
     birthdate.parentElement.setAttribute('data-error-visible', 'false');
@@ -114,7 +110,6 @@ function validateBirthdate() {
 function validateNumberTournaments() {
     if (quantity.value.trim().length === 0 || isNaN(quantity.value.trim()) === true || quantity.value.trim() < 0) {
         quantity.parentElement.setAttribute('data-error-visible', 'true');
-        quantity.style.border = '2px solid #e54858';
         return false;
     }
     quantity.parentElement.setAttribute('data-error-visible', 'false');
@@ -124,7 +119,7 @@ function validateNumberTournaments() {
 
 // LOCATIONS
 function validateLocations() {
-    locationTotal.setAttribute('data-error-visible', 'true');
+  locationTotal.setAttribute('data-error-visible', 'true');
     for (let i = 0; i < locations.length; i++) {
         if (locations[i].checked) {
             locationTotal.setAttribute('data-error-visible', 'false');
@@ -180,6 +175,7 @@ function formValidation() {
     }
     return false;
 }
+
 
 // SEND FORM
 form.addEventListener('submit', function (e) {
