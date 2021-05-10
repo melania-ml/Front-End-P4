@@ -53,8 +53,8 @@ let locations = document.querySelectorAll('#locationTotal .checkbox-input');
 let checkbox1 = document.getElementById('checkbox1');
 let input = document.getElementsByClassName('text-control');
 let form = document.getElementById('form');
-const reletter = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
-const remail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+const nameRegex = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
+const emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
 // FORM FIELD VALIDATION //
 
@@ -62,7 +62,7 @@ const remail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 function validateFirstName() {
   if (firstName.value.trim().length < 2 || 
   firstName.value.trim() === '' || 
-  !firstName.value.match(reletter)) {
+  !firstName.value.match(nameRegex)) {
       firstName.parentElement.setAttribute('data-error-visible', 'true');
       return false;
   }
@@ -75,7 +75,7 @@ function validateFirstName() {
 function validateLastName() {
   if (lastName.value.trim().length < 2 || 
   lastName.value.trim() === '' || 
-  !lastName.value.match(reletter)) {
+  !lastName.value.match(nameRegex)) {
       lastName.parentElement.setAttribute('data-error-visible', 'true');
       return false;
   }
@@ -86,7 +86,7 @@ function validateLastName() {
 
 // EMAIL
 function validateEmail() {
-    if (email.value.trim().match(remail)) {
+    if (email.value.trim().match(emailRegex)) {
         email.parentElement.setAttribute('data-error-visible', 'false');
         email.style.border = '2px solid #279e7a';
         return true;
@@ -188,10 +188,10 @@ form.addEventListener('submit', function (e) {
     }
 });
 
-// SUBMIT CONFIRMATION
-let containerSubmit = document.getElementsByClassName('containerSubmit');
-let closeSubmit = document.getElementsByClassName('closeSubmit');
-let closeConfirmation = document.getElementById('closeConfirmation');
+// DOM ELEMENTS SUBMIT CONFIRMATION
+const containerSubmit = document.getElementsByClassName('containerSubmit');
+const closeSubmit = document.getElementsByClassName('closeSubmit');
+const closeConfirmation = document.getElementById('closeConfirmation');
 
 
 // DISPLAY MODAL SUBMIT
